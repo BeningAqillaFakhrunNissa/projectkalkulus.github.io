@@ -1,0 +1,118 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #fce4ec, #e3f2fd);
+  color: #333;
+}
+.page { 
+    display: none; 
+    padding: 20px; 
+    max-width: 500px; 
+    margin: auto;
+    padding-bottom: 120px;
+}
+.active { display: block; }
+
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+
+.card input {
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+
+
+h2, h3 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #1976d2;
+  margin-top: 0;
+}
+
+.judul-auth {
+  text-align: center;
+  justify-content: center;  /* untuk flex agar berada di tengah */
+}
+
+input, button, select {
+  width: 100%; padding: 10px; margin-top: 10px;
+  border-radius: 10px; border: 1px solid #ccc; font-size: 16px;
+}
+
+button {
+  background: linear-gradient(90deg, #42a5f5, #f48fb1);
+  border: none; color: white; font-weight: bold; cursor: pointer;
+}
+button:hover { opacity: 0.93; }
+
+.logo {
+  text-align: center;
+  font-size: 40px;
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(135deg, #42a5f5, #f48fb1);
+  width: 90px; height: 90px;
+  border-radius: 50%; line-height: 90px;
+  margin: 30px auto;
+}
+
+nav {
+  position: fixed; bottom: 0; left: 0; right: 0;
+  background: white; display: flex; justify-content: space-around;
+  border-top: 1px solid #ddd; padding: 8px 0;
+}
+nav button {
+  background: none; border: none; padding: 6px 8px;
+  font-size: 13px; color: #666;
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+}
+
+.nav-icon {
+  width: 28px; height: 28px; object-fit: contain;
+}
+.warning { color: red; font-weight: bold; text-align: center; }
+.saldo { font-size: 26px; font-weight: bold; color: #2e7d32; text-align: center; }
+
+table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 14px; }
+th, td { border-bottom: 1px solid #eee; padding: 8px; text-align: center; }
+
+.plus { color: green; font-weight: bold; }
+.minus { color: red; font-weight: bold; }
+
+@media (max-width:480px) {
+  .page { padding: 14px; }
+  .card { padding: 14px; }
+  .logo { width:70px; height:70px; line-height:70px; font-size:34px; }
+}
+
+/* WRAPPER UNTUK SCROLLING RIWAYAT */
+#riwayatWrapper {
+  max-height: 220px;      /* tinggi area scroll */
+  overflow-y: auto;       /* aktifkan scroll vertikal */
+  margin-top: 10px;
+  border: 1px solid #eee;
+  border-radius: 10px;
+}
+
+/* TABLE DI DALAM WRAPPER */
+#tabelRiwayat {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#tabelRiwayat th,
+#tabelRiwayat td {
+  padding: 8px;
+  border-bottom: 1px solid #eee;
+  text-align: center;
+}
+

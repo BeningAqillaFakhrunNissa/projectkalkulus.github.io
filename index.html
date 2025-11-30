@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>BRV Smart Budget</title>
+
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body>
+
+<!-- LOGIN PAGE -->
+<div id="loginPage" class="page active">
+  <div class="logo">BRV</div>
+  <div class="card">
+    <h2 class="judul-auth">Masuk ke Akun</h2>
+    <input type="text" id="loginUser" placeholder="Username" required>
+    <input type="password" id="loginPass" placeholder="Password" required>
+    <button onclick="login()">Login</button>
+    <p style="text-align:center;">Belum punya akun?
+      <a href="#" onclick="showPage('signupPage')">Daftar</a>
+    </p>
+  </div>
+</div>
+
+<!-- SIGNUP PAGE -->
+<div id="signupPage" class="page">
+  <div class="logo">BRV</div>
+  <div class="card">
+    <h2 class="judul-auth">Daftar Akun Baru</h2>
+    <input type="text" id="newUser" placeholder="Username" required>
+    <input type="password" id="newPass" placeholder="Password" required>
+    <button onclick="signup()">Daftar</button>
+    <p style="text-align:center;">Sudah punya akun?
+      <a href="#" onclick="showPage('loginPage')">Login</a>
+    </p>
+  </div>
+</div>
+
+<!-- DASHBOARD -->
+<div id="dashboardPage" class="page">
+  <div class="card">
+    <h2><img class="nav-icon" src="wallet.webp"> Dashboard</h2>
+    <p>Saldo Saat Ini:</p>
+    <div class="saldo" id="saldo">Rp 0</div>
+    <p>Pengeluaran Hari Ini: <span id="pengeluaran">Rp 0</span> /
+      <span id="limitTeks">Rp 100.000</span></p>
+    <p>Pemasukan Hari Ini: <span id="pemasukan">Rp 0</span></p>
+  </div>
+
+  <div class="card">
+    <h3><img class="nav-icon" src="grafik.avif"> Grafik Keuangan</h3>
+    <canvas id="chartKeuangan" height="200"></canvas>
+  </div>
+</div>
+
+<!-- TRANSAKSI -->
+<div id="transaksiPage" class="page">
+  <div class="card">
+    <h2><img class="nav-icon" src="uang.png"> Transaksi</h2>
+    <form id="formTransaksi">
+      <select id="jenis">
+        <option value="isi">Pemasukan</option>
+        <option value="keluar">Pengeluaran</option>
+      </select>
+      <input type="text" id="jumlah" placeholder="Jumlah (Rp)" required oninput="formatInputRupiah(this)">
+      <button type="submit">Simpan</button>
+      <p id="peringatan" class="warning"></p>
+    </form>
+  </div>
+
+  <div class="card">
+    <h3><img class="nav-icon" src="setting.png"> Atur Limit Harian</h3>
+    <form id="formLimit">
+      <input type="text" id="inputLimit" placeholder="Contoh: 50.000" required oninput="formatInputRupiah(this)">
+      <button type="submit">Update Limit</button>
+    </form>
+  </div>
+
+  <div class="card">
+    <h3><img class="nav-icon" src="riwayattransaksi.png"> Riwayat Transaksi</h3>
+    
+  <div id="riwayatWrapper">
+    <table id="tabelRiwayat">
+      <tr>
+        <th>Waktu</th>
+        <th>Jenis</th>
+        <th>Jumlah</th>
+      </tr>
+    </table>
+  </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav id="navBar" style="display:none;">
+  <button id="btnDashboard" class="active" onclick="showPage('dashboardPage')">
+    <img class="nav-icon" src="grafik.avif"> Dashboard
+  </button>
+  <button id="btnTransaksi" onclick="showPage('transaksiPage')">
+    <img class="nav-icon" src="transaksi.png"> Transaksi
+  </button>
+  <button onclick="logout()">
+    <img class="nav-icon" src="logout.png"> Logout
+  </button>
+</nav>
+
+<script src="script.js"></script>
+</body>
+</html>
